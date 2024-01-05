@@ -1,8 +1,8 @@
-
-user = 'data'
-password = '123456'
-database = 'data'
-host = '47.96.9.245'
+#数据库配置
+user = 'root'
+password = 'root'
+database = 'xxx'
+host = '127.0.0.1'
 port = '3306'
 
 
