@@ -248,6 +248,10 @@ def test_table():
 
 ##### 3.4 nav
 
+* 该demo有两种nav
+
+![6](img/6.png)
+
 - 视图函数
 
 ```python
