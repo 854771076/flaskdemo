@@ -10,16 +10,15 @@
 
 ##### 1.1 canda常用命令
 
-| 获取版本号                             | conda -V                                                     |
+| 命令用法                             | 命令                                                     |
 | -------------------------------------- | ------------------------------------------------------------ |
+| 获取版本号                             | conda -V                                                     |
 |                                        | conda --version                                              |
 | 获取帮助                               | conda -h                                                     |
 |                                        | conda --help                                                 |
 | 获取环境相关命令的帮助                 | conda env -h                                                 |
 | 所有 --单词 都可以用 -单词首字母来代替 | 比如 -version 可以用 -V来代替，只不过有的是大写，有的可能是小写 |
-
 | 创建环境                             | conda create -n environment_name                        |
-| ------------------------------------ | ------------------------------------------------------- |
 | 创建指定python版本下包含某些包的环境 | conda create -n environment_name python=3.7 numpy scipy |
 | 进入环境                             | conda activate environment_name                         |
 | 退出环境                             | conda deactivate                                        |
@@ -28,9 +27,7 @@
 | 复制环境                             | conda create --name new_env_name --clone old_env_name   |
 | 指定目录下生成环境yml文件            | conda env export > 目录/environment.yml                 |
 | 从yml文件创建环境                    | conda env create -n env_name -f environment.yml         |
-
 | 安装包                | conda instal package_name      |
-| --------------------- | ------------------------------ |
 | 查看当前环境包列表    | conda list                     |
 | 查看指定环境包列表    | conda list -n environment_name |
 | 查看conda源中包的信息 | conda search package_name      |
