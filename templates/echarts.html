@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../static/js/jquery-1.11.1.min.js"></script>
+    <script src="../static/js/echarts.min.js"></script>
+</head>
+<body>
+<div style="width: 600px;height: 400px" id="chart"></div>
+
+<script>
+    var mCharts = echarts.init(document.querySelector("div"))
+    $.ajax({
+        url:'http://192.168.56.106:8088/api/v1/chart/4/data/',
+        dataType: "json",
+        type: "get",
+        success: function (data) {
+            data=data.result[0].data
+            var chartDom = document.getElementById('chart');
+            var myChart = echarts.init(chartDom);
+            var option;
+            time=[]
+            data1=[]
+            data2=[]
+            data.forEach(e=> {
+                time.push(new Date(e.__timestamp).getFullYear()+'.'+new Date(e.__timestamp).getMonth ())
+                data1.push(e.男)
+                data2.push(e.女)
+            });
+            option = {
+              tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                  // Use axis to trigger tooltip
+                  type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+                }
+              },
+              legend: {},
+              grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+              },
+              xAxis: {
+                type: 'value'
+              },
+              yAxis: {
+                type: 'category',
+                data: time
+              },
+              series: [
+              {
+                name: '女',
+                type: 'bar',
+                stack: 'total',
+                label: {
+                  show: true
+                },
+                emphasis: {
+                  focus: 'series'
+                },
+                data: data2
+              },
+              {
+                name: '男',
+                type: 'bar',
+                stack: 'total',
+                label: {
+                  show: true
+                },
+                emphasis: {
+                  focus: 'series'
+                },
+                data: data1
+              },
+              ]
+            };
+            
+            option && myChart.setOption(option);
+
+        },
+        error:function(err){
+          console.log(err)
+        },
+        
+    })
+    
+</script>
+</body>
+</html>

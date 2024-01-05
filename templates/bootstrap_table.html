@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% from 'bootstrap4/table.html' import render_table %}
+
+{% block content %}
+{% if messages %}
+    {{ render_table(messages, titles, table_classes='table-responsive table-striped',
+                    header_classes='thead-dark',
+                    show_actions=True, model=Astock,
+                    view_url=('view_message', [('message_id', ':stockid')])
+                    )}}
+{% endif %}
+
+{% endblock %}

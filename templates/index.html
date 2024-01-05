@@ -1,0 +1,11 @@
+{% extends 'stock_base.html' %}
+{% block content %}
+<div id = "form">
+    {% include 'stock_form.html' %}
+</div>
+<hr/>
+<div id="table-fixed">
+    <h2 id="indextitle">上市公司信息</h2>
+    {% include 'stock_pagination.html' %}
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% from 'bootstrap4/utils.html' import render_messages %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    {{ bootstrap.load_css() }}
+    {{ bootstrap.load_js() }}
+    <link href="../static/css/main.css"  rel="stylesheet"/>
+    <!--<link href="../static/css/boostrap4.css"  rel="stylesheet"/>-->
+</head>
+<body>
+<div id="body">
+
+    <div class="container" style="">
+        {{ render_messages(container=False, dismissible=True) }}
+        {% block content %}{% endblock %}
+    </div>
+</div>
+<div id="footer">{% block footer %}copyright:<script>document.write(new Date().getFullYear())</script>{% endblock %}</div>
+</body>
+
+</html>
